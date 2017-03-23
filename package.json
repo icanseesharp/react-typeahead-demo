@@ -1,7 +1,7 @@
 {
-  "name": "react-typehead-demo",
+  "name": "react-typeahead-demo",
   "version": "1.0.0",
-  "description": "react-typehead-demo - A responsive web app to demonstrate working of React with Twitter's' Typehead and Bloodhound.",
+  "description": "react-typeahead-demo - A responsive web app to demonstrate working of React with Twitter's' Typehead and Bloodhound.",
   "main": "index.js",
   "scripts": {
     "test": "test"
