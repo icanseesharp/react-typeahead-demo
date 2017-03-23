@@ -1,0 +1,27 @@
+{
+  "name": "react-typehead-demo",
+  "version": "1.0.0",
+  "description": "react-typehead-demo - A responsive web app to demonstrate working of React with Twitter's' Typehead and Bloodhound.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icanseesharp/react-typehead-demo.git"
+  },
+  "keywords": [
+    "react",
+    "typehead",
+    "bloodhound",
+    "react-js",
+    "twitter",
+    "typehead"
+  ],
+  "author": "Sagar Yerva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/icanseesharp/react-typehead-demo/issues"
+  },
+  "homepage": "https://github.com/icanseesharp/react-typehead-demo#readme"
+}
