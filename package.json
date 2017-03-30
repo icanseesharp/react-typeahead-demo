@@ -1,27 +1,51 @@
 {
   "name": "react-typeahead-demo",
   "version": "1.0.0",
-  "description": "react-typeahead-demo - A responsive web app to demonstrate working of React with Twitter's' Typehead and Bloodhound.",
+  "description": "react-typeahead-demo - A responsive web app to demonstrate working of React with Twitter's' typeahead and Bloodhound.",
   "main": "index.js",
   "scripts": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/icanseesharp/react-typehead-demo.git"
+    "url": "git+https://github.com/icanseesharp/react-typeahead-demo.git"
   },
   "keywords": [
     "react",
-    "typehead",
+    "typeahead",
     "bloodhound",
     "react-js",
     "twitter",
-    "typehead"
+    "typeahead"
   ],
   "author": "Sagar Yerva",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/icanseesharp/react-typehead-demo/issues"
+    "url": "https://github.com/icanseesharp/react-typeahead-demo/issues"
   },
-  "homepage": "https://github.com/icanseesharp/react-typehead-demo#readme"
+  "homepage": "https://github.com/icanseesharp/react-typeahead-demo#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "bloodhound": "^1.0.0",
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-if": "^2.0.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-size": "^2.1.0",
+    "gulp-uglify": "^2.1.2",
+    "numeral": "^2.0.4",
+    "run-sequence": "^1.2.2",
+    "typeahead": "^0.2.2"
+  },
+  "dependencies": {
+    "gulp-useref": "^3.1.2"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  }
 }
