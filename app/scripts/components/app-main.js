@@ -57,31 +57,27 @@ class App extends Component {
     this.fetchApi(url)
 
     //========================= BLOODHOUND ==============================//
-    let suggests = new Bloodhound({
+    let suggests = new Bloodhound({      
       datumTokenizer: function(datum) {
-        console.log('datum.value is : ' + datum.value)
-        return Bloodhound.tokenizers.whitespace(datum.value);
+        return Bloodhound.tokenizers.whitespace(datum['value']);
       },
-      queryTokenizer: function(){
-        console.log('queryTokenizer value :' + Bloodhound.tokenizers.whitespace);
-    return Bloodhound.tokenizers.whitespace
-    },
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
       remote: {
         url: 'https://api.themoviedb.org/3/search/movie?query=%QUERY&api_key=cfe422613b250f702980a3bbf9e90716',
-        wildcard: '%QUERY',
+        wildcard: '%QUERY',//Added as a fix to latest version of Bloodhound, if removed, remote will search for he term 'QUERY'
         filter: function(movies) {
           // Map the remote source JSON array to a JavaScript object array
           return $.map(movies.results, function(movie) {
             return {
-              value: movie.original_title, // search original title
-              id: movie.id // get ID of movie simultaniously
+              value: movie.original_title, //This value is used in datumTokenizer to query the tmdb database
+              id: movie.id
             };
           });
         } // end filter
-      } // end remote
+      }
     }); // end new Bloodhound
 
-    suggests.initialize(); // initialise bloodhound suggestion engine
+    suggests.initialize();
 
     //========================= END BLOODHOUND ==============================//
 
@@ -90,20 +86,19 @@ class App extends Component {
     $('.typeahead').typeahead({
       hint: true,
       highlight: true,
-      minLength: 2
+      minLength: 2,
     }, 
     {
+      displayKey : function(datum) { return datum.value;},
       name : 'suggests',
-      //source: suggests.ttAdapter()
-      source : suggests
+      source: suggests.ttAdapter()      
     }).
     on('typeahead:selected', function(obj, datum) {
       this.fetchMovieID(datum.id)
-    }.bind(this)); // END Instantiate the Typeahead UI
+    }.bind(this));
+
     //========================= END TYPEAHEAD ==============================//
 
   } // end component did mount function
-
-  // } // END CLASS - APP
-}
+}// END CLASS - APP
 module.exports = App;
