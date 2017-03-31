@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      movieID: 157336 // set initital load movie - Interstellar
+      movieID: 424 // set initital load movie - Schindler's List
     }
   }
   render() {
@@ -51,20 +51,17 @@ class App extends Component {
     this.fetchApi(url)
   } // end function
 
-  componentDidMount() {
-    console.log('Component mounted');
+  componentDidMount() {    
     let url = `https://api.themoviedb.org/3/movie/${this.state.movieID}?&api_key=cfe422613b250f702980a3bbf9e90716`
     this.fetchApi(url)
 
-    //========================= BLOODHOUND ==============================//
+    // Configure Bloodhound
     let suggests = new Bloodhound({      
-      datumTokenizer: function(datum) {
-        return Bloodhound.tokenizers.whitespace(datum['value']);
-      },
+      datumTokenizer: function(datum) { return Bloodhound.tokenizers.whitespace(datum['value']); },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       remote: {
         url: 'https://api.themoviedb.org/3/search/movie?query=%QUERY&api_key=cfe422613b250f702980a3bbf9e90716',
-        wildcard: '%QUERY',//Added as a fix to latest version of Bloodhound, if removed, remote will search for he term 'QUERY'
+        wildcard: '%QUERY',//Added as a fix to latest version of Bloodhound
         filter: function(movies) {
           // Map the remote source JSON array to a JavaScript object array
           return $.map(movies.results, function(movie) {
@@ -79,10 +76,9 @@ class App extends Component {
 
     suggests.initialize();
 
-    //========================= END BLOODHOUND ==============================//
+    // END Bloodhound
 
-    //========================= TYPEAHEAD ==============================//
-    // Instantiate the Typeahead UI
+    //----Configure Typeahead UI    
     $('.typeahead').typeahead({
       hint: true,
       highlight: true,
@@ -97,7 +93,7 @@ class App extends Component {
       this.fetchMovieID(datum.id)
     }.bind(this));
 
-    //========================= END TYPEAHEAD ==============================//
+    //----END Typeahead UI config
 
   } // end component did mount function
 }// END CLASS - APP
