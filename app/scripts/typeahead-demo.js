@@ -26,10 +26,26 @@ var TypeaheadDemo = React.createClass({
     componentDidMount() {
     //========================= BLOODHOUND ==============================//
   var aState = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  //datumTokenizer: Bloodhound.tokenizers.whitespace,
+  datumTokenizer: function (datum){
+    return Bloodhound.tokenizers.whitespace(datum.value);
+  },
   queryTokenizer: Bloodhound.tokenizers.whitespace,  
-  local: states
-});
+  //local: states
+  remote : 
+  {
+    url : 'https://api.themoviedb.org/3/search/movie?query=%QUERY&api_key=cfe422613b250f702980a3bbf9e90716',
+    wildcard: '%QUERY',
+    filter : function(movies){
+      return $.map(movies.results, function(movie){
+        return {
+          value :movie.value,
+          id  : movie.id
+        };
+      });
+    },//END filter
+  }
+});//END Bloodhound
 
     //========================= END BLOODHOUND ==============================//
 
@@ -43,8 +59,8 @@ var TypeaheadDemo = React.createClass({
 {
   name: 'aState',
   source: aState
-}).on('typeahead:selected',function(datum){
-  alert(datum);
+}).on('typeahead:selected',function(obj,datum){
+  alert(datum.id);
 }.bind(this)); // END Instantiate the Typeahead UI
 
     //========================= END TYPEAHEAD ==============================//

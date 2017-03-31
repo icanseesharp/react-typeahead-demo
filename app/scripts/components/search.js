@@ -5,6 +5,7 @@ const TMDBLogo = 'https://www.themoviedb.org/assets/static_cache/27b65cb40d26f78
 class SearchBox extends Component {
 
   handleChange(event) {
+    console.log('search input field');
     event.target.select();
   }
   render() {

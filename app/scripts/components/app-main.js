@@ -52,18 +52,23 @@ class App extends Component {
   } // end function
 
   componentDidMount() {
+    console.log('Component mounted');
     let url = `https://api.themoviedb.org/3/movie/${this.state.movieID}?&api_key=cfe422613b250f702980a3bbf9e90716`
     this.fetchApi(url)
 
     //========================= BLOODHOUND ==============================//
     let suggests = new Bloodhound({
       datumTokenizer: function(datum) {
+        console.log('datum.value is : ' + datum.value)
         return Bloodhound.tokenizers.whitespace(datum.value);
       },
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      queryTokenizer: function(){
+        console.log('queryTokenizer value :' + Bloodhound.tokenizers.whitespace);
+    return Bloodhound.tokenizers.whitespace
+    },
       remote: {
-        url: 'https://api.themoviedb.org/3/search/movie?query=%Titanic&api_key=cfe422613b250f702980a3bbf9e90716',
-        //url : `https://api.themoviedb.org/3/movie/${this.state.movieID}?&api_key=cfe422613b250f702980a3bbf9e90716`,
+        url: 'https://api.themoviedb.org/3/search/movie?query=%QUERY&api_key=cfe422613b250f702980a3bbf9e90716',
+        wildcard: '%QUERY',
         filter: function(movies) {
           // Map the remote source JSON array to a JavaScript object array
           return $.map(movies.results, function(movie) {
@@ -88,7 +93,9 @@ class App extends Component {
       minLength: 2
     }, 
     {
-      source: suggests.ttAdapter()
+      name : 'suggests',
+      //source: suggests.ttAdapter()
+      source : suggests
     }).
     on('typeahead:selected', function(obj, datum) {
       this.fetchMovieID(datum.id)

@@ -35,12 +35,7 @@ gulp.task('html', function() {
     return gulp.src('app/*.html')
         .pipe(useref())
         .pipe(gulpIf('*.js',uglify()))
-        .pipe(gulp.dest('dist/'))
-        .pipe(sync.reload(
-        {
-            stream : true
-        }
-    )) 
+        .pipe(gulp.dest('dist/'))    
 });
 
 gulp.task('image',function(){
@@ -62,8 +57,6 @@ gulp.task('bundlejs',function(){
 });
 
 function bundleApp(isProduction) {	
-	// Browserify will bundle all our js files together in to one and will let
-	// us use modules in the front end.
 	var appBundler = browserify({
     	entries: ['./app/scripts/app.js'],
         insertGlobals: true,
@@ -73,28 +66,26 @@ function bundleApp(isProduction) {
   	})  		
   	appBundler
   		// transform ES6 and JSX to ES5 with babelify
-	  	.transform("babelify", {presets: ["es2015", "react"]})
+	  	.transform("babelify", {presets: ["es2015", "react"]})        
 	    .bundle()
 	    .on('error',gutil.log)
 	    .pipe(source('./app.js'))
 	    .pipe(gulp.dest('./dist/scripts/'));
 }
 
-
 var bundler = {
     w: null,
     init: function() {
         this.w = watchify(browserify({
-            entries: ['./app/scripts/app.js'],           
+            entries: ['./app/scripts/app.js'],
             insertGlobals: true,
             cache: {},
             packageCache: {}
         }));
     },
     bundle: function() {
-        return this.w && this.w.transform("babelify", {presets: ["es2015", "react"]})
-            .bundle()
-            .on('error', gutil.log)
+        return this.w && this.w.bundle()
+            .on('error', gutil.log.bind(gutil, 'Browserify Error'))
             .pipe(source('app.js'))
             .pipe(gulp.dest('dist/scripts'));
     },
@@ -117,9 +108,7 @@ gulp.task('clean:dist', function() {
 
 
 gulp.task('build', function (callback) {
-  runSequence('clean:dist', 
-    ['sass', 'bundlejs','image', 'html','sync'],
-    callback
+  runSequence('clean:dist', 'bundlejs','sass','image', 'html', 'sync' ,callback
   );
 gulp.watch('app/scripts/**/*.js', ['bundlejs']);
 })
