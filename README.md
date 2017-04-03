@@ -13,7 +13,7 @@ I would like to integrate a search for the movie quotes, however I couldn't find
   
   
 
-### Following are some (but not all) of the frameworks used o build the application
+### Following are some (but not all) of the frameworks used to build the application
 
 * [React js](https://facebook.github.io/react/)
 * [Twitter Typeahead]( https://twitter.github.io/typeahead.js/)
