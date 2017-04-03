@@ -3,8 +3,11 @@
 
 
 
-An application to demonstrate the usage of react js with twitter's typeahead and bloodhound frameworks.
-The application is hosted with :heart: by Github over [here](https://icanseesharp.github.io/react-typeahead-demo/)   
+An application to demonstrate the usage of react js with twitter's typeahead and bloodhound frameworks.   
+
+### Application Demo
+
+[Live Demo](https://icanseesharp.github.io/react-typeahead-demo/) of the application is hosted with :heart: by Github
    
    
 This application is built entirely using js frameworks, HTML and CSS, it lets you search for the movies and displays the details of the movie when selected from the search results.
