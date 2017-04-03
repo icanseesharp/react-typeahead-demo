@@ -132,14 +132,14 @@ var App = function (_Component) {
   }, {
     key: 'fetchMovieID',
     value: function fetchMovieID(movieID) {
-      var url = 'https://api.themoviedb.org/3/movie/' + movieID + '?&api_key=cfe422613b250f702980a3bbf9e90716';
+      var url = 'https://api.themoviedb.org/3/movie/' + movieID + '?&api_key=1ef28d374513cebe254f6e12e1d27da0';
       this.fetchApi(url);
     } // end function
 
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var url = 'https://api.themoviedb.org/3/movie/' + this.state.movieID + '?&api_key=cfe422613b250f702980a3bbf9e90716';
+      var url = 'https://api.themoviedb.org/3/movie/' + this.state.movieID + '?&api_key=1ef28d374513cebe254f6e12e1d27da0';
       this.fetchApi(url);
 
       // Configure Bloodhound
@@ -149,7 +149,7 @@ var App = function (_Component) {
         },
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         remote: {
-          url: 'https://api.themoviedb.org/3/search/movie?query=%QUERY&api_key=cfe422613b250f702980a3bbf9e90716',
+          url: 'https://api.themoviedb.org/3/search/movie?query=%QUERY&api_key=1ef28d374513cebe254f6e12e1d27da0',
           wildcard: '%QUERY', //Added as a fix to latest version of Bloodhound
           filter: function filter(movies) {
             // Map the remote source JSON array to a JavaScript object array

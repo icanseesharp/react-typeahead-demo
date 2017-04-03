@@ -34,7 +34,7 @@ var TypeaheadDemo = React.createClass({
   //local: states
   remote : 
   {
-    url : 'https://api.themoviedb.org/3/search/movie?query=%QUERY&api_key=cfe422613b250f702980a3bbf9e90716',
+    url : 'https://api.themoviedb.org/3/search/movie?query=%QUERY&api_key=1ef28d374513cebe254f6e12e1d27da0',
     wildcard: '%QUERY',
     filter : function(movies){
       return $.map(movies.results, function(movie){
