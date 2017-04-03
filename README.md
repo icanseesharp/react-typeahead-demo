@@ -5,7 +5,8 @@
 
 An application to demonstrate the usage of react js with twitter's typeahead and bloodhound frameworks.   
 
-### Application Demo
+## Application Demo
+
 
 [Live Demo](https://icanseesharp.github.io/react-typeahead-demo/) of the application is hosted with :heart: by Github
    
@@ -15,8 +16,8 @@ This application is built entirely using js frameworks, HTML and CSS, it lets yo
 I would like to integrate a search for the movie quotes, however I couldn't find API's for quote searches till now, will update the repo if I find one!
   
   
-
-### Following are some (but not all) of the frameworks used to build the application
+## Frameworks used
+__Following are some (but not all) of the frameworks used to build the application__
 
 * [React js](https://facebook.github.io/react/)
 * [Twitter Typeahead]( https://twitter.github.io/typeahead.js/)
@@ -30,7 +31,7 @@ I would like to integrate a search for the movie quotes, however I couldn't find
 
 __You can install and try this application on your machine.__
 
-### Installation (For Windows OS)  
+## Installation (For Windows OS)  
 
 * You will need [node.js](http://nodejs.org/download/) to work with npm packages, latest version of npm comes bundled with node.
 * Once you have installed node and npm, clone the [repository](https://github.com/icanseesharp/react-typeahead-demo) on your machine.
@@ -47,10 +48,10 @@ __You can install and try this application on your machine.__
 * This will run all the tasks to build the application and start it from port 3000 on your default browser.
 
 
-### Author
+## Author
 [Sagar Yerva](https://github.com/icanseesharp)
 
-### License
+## License
 [MIT](https://github.com/icanseesharp/react-typeahead-demo/blob/master/LICENSE)
 
 
