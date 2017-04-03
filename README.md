@@ -1,6 +1,13 @@
 # react-typeahead-demo
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/icanseesharp/react-typeahead-demo/master/LICENSE)
+
+
+
 An application to demonstrate the usage of react js with twitter's typeahead and bloodhound frameworks.
-This application is built entirely using js frameworks, HTML and CSS only, it lets you search for the movies and displays the details of the movie when selected from the search results.
+The application is hosted with :heart: by Github over [here](https://icanseesharp.github.io/react-typeahead-demo/)   
+   
+   
+This application is built entirely using js frameworks, HTML and CSS, it lets you search for the movies and displays the details of the movie when selected from the search results.
 
 I would like to integrate a search for the movie quotes, however I couldn't find API's for quote searches till now, will update the repo if I find one!
   
